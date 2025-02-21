@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DrawerAppBar from "./components/AppBar";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Divider } from "@mui/material";
 import BottomScreen from "./components/BottomScreen";
 
 function App() {
@@ -18,10 +18,11 @@ function App() {
         }}
       >
         <DrawerAppBar />
-        <Container component="main" sx={{ flexGrow: 1, py: 4 }}>
+        <Container component="main" sx={{ flexGrow: 1, pt: 10 }}>
           <h1>Welcome to My Website</h1>
           <p>This is the main content.</p>
         </Container>
+        <Divider sx={{backgroundColor: "black"}}/>
         <BottomScreen />
       </Box>
     </>
