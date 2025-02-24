@@ -2,30 +2,23 @@ import { useState } from "react";
 import DrawerAppBar from "./components/AppBar";
 import { Box, Container, Divider } from "@mui/material";
 import BottomScreen from "./components/BottomScreen";
+import Home from "./components/Home";
+import { Link, Route, Router, Routes } from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Layout from "./components/Layout";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "lightgray",
-          minHeight: "100vh",
-          minWidth: "100vw",
-        }}
-      >
-        <DrawerAppBar />
-        <Container component="main" sx={{ flexGrow: 1, pt: 10 }}>
-          <h1>Welcome to My Website</h1>
-          <p>This is the main content.</p>
-        </Container>
-        <Divider sx={{backgroundColor: "black"}}/>
-        <BottomScreen />
-      </Box>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+      </Route>
+    </Routes>
   );
 }
 

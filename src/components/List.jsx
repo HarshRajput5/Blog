@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import Typography from '@mui/material/Typography'
 import { ListItem } from "@mui/material";
 
-export default function SelectedListItem({ title, items }) {
+export default function SelectedListItem({ title, items}) {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleListItemClick = (event, index) => {
@@ -20,13 +20,20 @@ export default function SelectedListItem({ title, items }) {
 
   return (
     <Box sx={{ width: "100%", maxWidth: 360 }}>
-      <Typography variant="body1" color="initial" sx={{color:"darkslategray",mb:2}}>
+      <Typography variant="body1" color="initial" sx={{color:"darkslategray",mb:{
+        xs: 0,
+        md: 2
+      },mt:{
+        xs:2,
+        md:0
+      }
+      }}>
         {title}
       </Typography>
       <List component="nav" aria-label="secondary mailbox folder">
         {items.map((item) => (
-          <ListItem sx={{p:0}}>
-          <Button key={item} variant="text" sx={{ color: "black",textTransform: "none" }}>
+          <ListItem key={item} sx={{p:0}}>
+          <Button variant="text" sx={{ color: "black",textTransform: "none" }}>
             {item}
           </Button>
           </ListItem>

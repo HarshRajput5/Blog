@@ -10,7 +10,10 @@ function BottomScreen() {
   const legals = ['Terms & Conditions', 'Privacy Policy', 'Licensing']
 
   return (
-    <Box component="footer" sx={{ display: "flex" }}>
+    <Box component="footer" sx={{ display: {
+      xs: 'bloc',
+      md: 'flex',
+    } }}>
       {/* <Divider/> */}
       <Box sx={{ flex: 1, p: 2, display:"flex",flexDirection:"column", justifyContent:"space-between" }} component="footer">
         <Typography variant="h5">
@@ -20,7 +23,11 @@ function BottomScreen() {
           © {new Date().getFullYear()} My Website. Follow us.
         </Typography>
       </Box>
-      <Box sx={{ flex: 1, p: 2, display:"flex",flexDirection:"row", }}>
+      <Box sx={{ flex: 1, p: 2, display:"flex",flexDirection:{
+        xs:"column",
+        sm:"row"
+      }
+      }}>
         <SelectedListItem items={company} title={"COMPANY"}/>
         <SelectedListItem items={support} title={"SUPPORT"}/>
         <SelectedListItem items={legals} title={"LEGALS"}/>
